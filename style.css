@@ -1,3 +1,4 @@
+/* Configurações gerais */
 * {
   margin: 0;
   padding: 0;
@@ -15,63 +16,13 @@ body * {
   font-family: "Inter", sans-serif;
 }
 
+/* Configurando os principais containers */
 .wrapper {
   display: flex;
   overflow-y: hidden;
 }
 .main-container {
   width: 50%;
-}
-
-#main {
-  height: 100vh;
-
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 1.6rem;
-}
-.content {
-  padding: 4rem;
-  border-radius: 4rem;
-
-  color: #101010;
-  background-color: #FAFAFA;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-
-  display: grid;
-}
-.text {
-  display: grid;
-  gap: 1.2rem;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-}
-.text h1 {
-  font-size: 3.6rem;
-}
-.text h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 3.6rem;
-}
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.4rem;
-}
-#form-div {
-  display: grid;
-  gap: 2.8rem;
-}
-#color-picker {
-  width: 16rem;
-  height: 16rem;
-  border: 0;
-  outline: 0;
 }
 .container .nome, .container .rgb, .container .hex {
   width: 28rem;
@@ -96,7 +47,55 @@ body * {
 .container .hex {
   width: 16rem;
 }
+#main {
+  height: 100vh;
 
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1.6rem;
+}
+.content {
+  padding: 4rem;
+  border-radius: 4rem;
+
+  color: #101010;
+  background-color: #FAFAFA;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+  display: grid;
+}
+
+/* Text */
+.text {
+  display: grid;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+.text h1 {
+  font-size: 3.6rem;
+}
+.text h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 3.6rem;
+}
+/* Container principal dos inputs */
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+#form-div {
+  display: grid;
+  gap: 2.8rem;
+}
+
+/* Containers das cores Tailwind */
 #container-1, #container-2, #container-3, #container-4, #container-5, #container-6, #container-7, #container-8{
   flex-direction: row;
   justify-content: center;
@@ -106,7 +105,18 @@ body * {
   display: none;
 }
 
-/* INPUTS */
+/* Configurando todos os inputs */
+
+/* Input Hex */
+#color-picker {
+  width: 16rem;
+  height: 16rem;
+  border: 0;
+  outline: 0;
+}
+
+
+/* Configs gerais dos containers dos inputs de texto */
 .input-color-container {
   position: relative;
 
@@ -118,8 +128,10 @@ body * {
   --all-transition: all .2s ease-out;
   --input-focus-opacity: .3;
 }
-
 .input-color {
+  display: flex;
+  justify-content: center;
+  gap: 10px;  
 
   min-width: 150px;
   max-width: 250px;
@@ -136,13 +148,31 @@ body * {
 
   transition: var(--all-transition);
 }
-.input-color#rgb {
-  display: flex;
-  justify-content: center;
-  gap: 10px;  
+.input-color#hex-container {
+  justify-content: start;
+  gap: 4px;
 }
 
-.input-color .inputs {
+/* Configs gerais de focus e placeholder dos inputs de texto */
+.input-color:focus-within {
+  border: 0;
+  outline: 1.9px solid var(--color-border-hover);
+
+  color: var(--color-input);
+}
+.input-color::-webkit-input-placeholder,
+.input-color::-moz-input-placeholder,
+.input-color::-ms-input-placeholder {
+  color: var(--color-border);
+}
+.input-color-container:focus-within::-webkit-input-placeholder,
+.input-color-container:focus-within::-moz-input-placeholder,
+.input-color-container:focus-within::-ms-input-placeholder {
+  opacity: var(--input-focus-opacity);
+}
+
+/* Input RGB */
+.input-color#rgb .inputs {
   width: 45px;
   padding-bottom: 1px;
 
@@ -157,7 +187,7 @@ body * {
 
   transition: var(--all-transition);
 }
-.input-color .inputs:focus {
+.input-color#rgb .inputs:focus {
   border-bottom: 1.9px solid var(--color-input);
 }
 
@@ -173,25 +203,30 @@ body * {
   font-weight: 400;
 }
 
-.input-color:focus-within {
-  border: 0;
-  outline: 1.9px solid var(--color-border-hover);
+/* Input HEX */
+.input-color#hex-container .inputs {
+  width: fit-content;
 
+  border: none;
+  outline: none;
+
+  background-color: transparent;
+
+  font-size: 18px;
+
+  transition: var(--all-transition);
+}
+.input-color#hex-container .hashtag h2 {
+  color: var(--color-border);
+  font-weight: 300;
+
+  transition: var(--all-transition);
+}
+.input-color#hex-container:focus-within .hashtag h2 {
   color: var(--color-input);
 }
 
-.input-color::-webkit-input-placeholder,
-.input-color::-moz-input-placeholder,
-.input-color::-ms-input-placeholder {
-  color: var(--color-border);
-}
-
-.input-color-container:focus-within::-webkit-input-placeholder,
-.input-color-container:focus-within::-moz-input-placeholder,
-.input-color-container:focus-within::-ms-input-placeholder {
-  opacity: var(--input-focus-opacity);
-}
-
+/* Color Label */
 .color-label {
   position: absolute;
   top: -11.5px;
@@ -216,12 +251,12 @@ body * {
 
   transition: var(--all-transition);
 }
-
 .input-color:focus-within ~ .color-label {
   color: var(--color-border-hover);
   outline: 1.9px solid var(--color-border-hover);
 }
 
+/* Botão de copiar */
 .btn-copy {
   width: 24px;
   height: 24px;
@@ -245,33 +280,26 @@ body * {
 
   transition: var(--all-transition);
 }
-
 .btn-copy:hover {
   background-color: var(--color-border);
   transform: scale(1.2);
 }
-
 .btn-copy:active {
   transform: scale(1.1);
 }
-
 .input-color:focus-within ~ .btn-copy {
   outline: 1.9px solid var(--color-border-hover);
 }
-
 .input-color:focus-within ~ .btn-copy:hover {
   background-color: var(--color-border-hover);
 }
-
 .icon-btn-copy {
   fill: var(--color-border);
 }
-
 .btn-copy:hover .icon-btn-copy,
 .input-color:focus-within ~ .btn-copy:hover .icon-btn-copy {
   fill: var(--color-icon);
 }
-
 .input-color:focus-within ~ .btn-copy .icon-btn-copy {
   fill: var(--color-border-hover);
 }

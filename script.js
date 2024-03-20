@@ -258,7 +258,7 @@ function rgbToHex() {
   hex_color = hex_color.replace("NaN", "00");
 
   document.querySelector('#color-picker').value = hex_color.toUpperCase();
-  document.querySelector('#hex').value = hex_color.toUpperCase();
+  document.querySelector('#hex').value = hex_color.replace("#", "").toUpperCase();
 }
 function hexToRGB(hex_color) {
   document.querySelector('#red').value = parseInt(hex_color.substring(1, 3), 16);
@@ -270,7 +270,7 @@ function hexToRGBfromColorPicker() {
 
   hexToRGB(hex_color);
 
-  document.querySelector('#hex').value = hex_color.toUpperCase();
+  document.querySelector('#hex').value = hex_color.replace("#", "").toUpperCase();
 }
 function hexToRGBfromHEXInput() {
   let hex_color = document.querySelector("#hex").value;
@@ -375,7 +375,7 @@ document.querySelector("#color-picker").addEventListener("input", function() {
   acharCores();
 });
 document.querySelector("#hex").addEventListener("input", function() {
-  if (document.querySelector("#hex").value.length === 7) {
+  if (document.querySelector("#hex").value.length === document.querySelector("#hex").maxLength) {
     hexToRGBfromHEXInput();
     acharCores();
   }
