@@ -11,6 +11,7 @@
 }
 body {
   font-size: 1.6rem;
+  overflow-y: hidden;
 }
 body * {
   font-family: "Inter", sans-serif;
@@ -19,7 +20,6 @@ body * {
 /* Configurando os principais containers */
 .wrapper {
   display: flex;
-  overflow-y: hidden;
 }
 .main-container {
   width: 50%;
