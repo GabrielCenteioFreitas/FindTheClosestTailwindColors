@@ -16,13 +16,13 @@
 </p>
 
 <p align="center">
-  <a href="#-tecnologias">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
 <p align="center">
-  <img alt="Image of the projectt." src=".github/preview.png" width="80%">
+  <img alt="Preview of the project." src=".github/preview.png" width="80%">
 </p>
 
 <h4 align="center">
