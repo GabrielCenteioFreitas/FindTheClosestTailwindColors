@@ -274,7 +274,7 @@ function hexToRGBfromHEXInput(hex_color) {
   document.querySelector('#green').value = parseInt(hex_color.substring(2, 4), 16);
   document.querySelector('#blue').value = parseInt(hex_color.substring(4, 6), 16);
 
-  document.querySelector('#color-picker').value = hex_color.toUpperCase();
+  document.querySelector('#color-picker').value = "#" + hex_color.toUpperCase();
 }
 
 function acharCores() {
@@ -366,6 +366,7 @@ function acharCores() {
 }
 
 acharCores();
+document.querySelector('#color-picker').value = "#FFFFFF";
 
 document.querySelector("#color-picker").addEventListener("input", function() {  
   hexToRGBfromColorPicker();
