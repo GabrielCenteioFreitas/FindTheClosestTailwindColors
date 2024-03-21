@@ -1,3 +1,5 @@
+# This file is the first prototype of the project, it was made in Python and then converted to JavaScript and incorporated into a website made with HTML and CSS
+
 import math
 
 cores = {
@@ -247,9 +249,9 @@ cores = {
     "rose-950": [76, 5, 25],
 }
 
-r = int(input("Insira o primeiro número: "))
-g = int(input("Insira o segundo número: "))
-b = int(input("Insira o terceiro número: "))
+r = int(input("Enter the first number: "))
+g = int(input("Enter the second number: "))
+b = int(input("Enter the third number: "))
 
 range = 10
 coordenadas = [r, g, b]
@@ -281,15 +283,9 @@ while distancias:
     lista.pop(index_min_distancia)
     distancias.pop(index_min_distancia)
 
-print(f"\n\n{"-"*20}\nCores mais próximas\n{"-"*20}")
+print(f"\n{"-"*23}\nClosest Tailwind Colors\n{"-"*23}")
 for cor in lista_ordenada:
   cor_formatada = str(cores[cor]).replace("[","").replace("]","")
-  print(f"Nome: {cor} | ", end="")
+  print(f"Name: {cor} | ", end="")
   print(f"RGB: {cor_formatada}")
-
-dict_cores = {}
-for cor in lista_ordenada:
-  dict_cores[cor] = str(cores[cor]).replace("[","").replace("]","").replace(", ","-")
-print("---------\nLink geral\n---------")
-print(f"http://127.0.0.1:5502/index.html?&color={str(coordenadas).replace("[","").replace("]","").replace(", ","-")}&cores={str(dict_cores).replace("'", '"')}")
-print("\n")
+print(f"\n")
