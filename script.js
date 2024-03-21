@@ -260,22 +260,19 @@ function rgbToHex() {
   document.querySelector('#color-picker').value = hex_color.toUpperCase();
   document.querySelector('#hex').value = hex_color.replace("#", "").toUpperCase();
 }
-function hexToRGB(hex_color) {
-  document.querySelector('#red').value = parseInt(hex_color.substring(1, 3), 16);
-  document.querySelector('#green').value = parseInt(hex_color.substring(3, 5), 16);
-  document.querySelector('#blue').value = parseInt(hex_color.substring(5, 7), 16);
-}
 function hexToRGBfromColorPicker() {
   let hex_color = document.querySelector("#color-picker").value;
 
-  hexToRGB(hex_color);
+  document.querySelector('#red').value = parseInt(hex_color.substring(1, 3), 16);
+  document.querySelector('#green').value = parseInt(hex_color.substring(3, 5), 16);
+  document.querySelector('#blue').value = parseInt(hex_color.substring(5, 7), 16);
 
   document.querySelector('#hex').value = hex_color.replace("#", "").toUpperCase();
 }
-function hexToRGBfromHEXInput() {
-  let hex_color = document.querySelector("#hex").value;
-
-  hexToRGB(hex_color);
+function hexToRGBfromHEXInput(hex_color) {
+  document.querySelector('#red').value = parseInt(hex_color.substring(0, 2), 16);
+  document.querySelector('#green').value = parseInt(hex_color.substring(2, 4), 16);
+  document.querySelector('#blue').value = parseInt(hex_color.substring(4, 6), 16);
 
   document.querySelector('#color-picker').value = hex_color.toUpperCase();
 }
@@ -375,8 +372,13 @@ document.querySelector("#color-picker").addEventListener("input", function() {
   acharCores();
 });
 document.querySelector("#hex").addEventListener("input", function() {
-  if (document.querySelector("#hex").value.length === document.querySelector("#hex").maxLength) {
-    hexToRGBfromHEXInput();
+  if (document.querySelector("#hex").value.length === 6) {
+    hexToRGBfromHEXInput(document.querySelector("#hex").value);
+    acharCores();
+  }
+  else if (document.querySelector("#hex").value.length === 3) {
+    let hex_color = document.querySelector("#hex").value.replace(/([a-f\d])/gi, '$1$1');
+    hexToRGBfromHEXInput(hex_color);
     acharCores();
   }
 });
@@ -387,3 +389,39 @@ document.querySelectorAll("#rgb .inputs").forEach(function(input) {
     acharCores();
   });
 });
+
+// REGEX
+function regexHex(event) {
+  let typedChar = event.data || String.fromCharCode(event.which || event.keyCode);
+  let regex = /[a-fA-F0-9]/;
+
+  if (!regex.test(typedChar)) {
+      event.preventDefault();
+      return false;
+  }
+  return true;
+}
+
+function regexRGB(event) {
+  let keyCode = ('which' in event) ? event.which : event.keyCode;
+  let typedChar = String.fromCharCode(keyCode);
+  let regex1 = /[\d\b]/;
+  let regex2 = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])?$/;
+
+  if (regex1.test(typedChar)) {
+      let currentValue = event.target.value;
+      let newValue = currentValue.slice(0, event.target.selectionStart) + typedChar + currentValue.slice(event.target.selectionEnd);
+
+      if (regex2.test(newValue)) {
+          return true;
+      }
+      else {
+          event.preventDefault();
+          return false;
+      }
+  }
+  else {
+      event.preventDefault();
+      return false;
+  }
+}

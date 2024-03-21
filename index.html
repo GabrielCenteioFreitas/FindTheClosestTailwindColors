@@ -22,11 +22,11 @@
                     <div id="form-div">
                         <div class="input-color-container">
                             <div class="input-color" id="rgb">
-                                <input class="inputs" id="red" name="text" type="text" placeholder="255" value="255" maxlength="3">
+                                <input class="inputs" id="red" type="text" maxlength="3" placeholder="255" value="255" onkeypress="return regexRGB(event)">
                                 <div class="virgula"><h2>,</h2></div>
-                                <input class="inputs" id="green" name="text" type="text" placeholder="255" value="255" maxlength="3">
+                                <input class="inputs" id="green" type="text" maxlength="3" placeholder="255" value="255" onkeypress="return regexRGB(event)">
                                 <div class="virgula"><h2>,</h2></div>
-                                <input class="inputs" id="blue" name="text" type="text" placeholder="255" value="255" maxlength="3">
+                                <input class="inputs" id="blue" type="text" maxlength="3" placeholder="255" value="255" onkeypress="return regexRGB(event)">
                             </div>
                             <label class="color-label">RGB</label>
                             <button class="btn-copy">
@@ -36,7 +36,7 @@
                         <div class="input-color-container">
                             <div class="input-color" id="hex-container">
                                 <div class="hashtag"><h2>#</h2></div>
-                                <input class="inputs" id="hex" type="text" name="hex" placeholder="FFFFFF" value="FFFFFF" maxlength="6">
+                                <input class="inputs" id="hex" type="text" placeholder="FFFFFF" value="FFFFFF" maxlength="6" onkeypress="return regexHex(event)">
                             </div>
                             <label class="color-label">HEX</label>
                             <button class="btn-copy">
