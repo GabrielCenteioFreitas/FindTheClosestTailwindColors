@@ -364,8 +364,6 @@ function acharCores() {
     i++;
   }
 }
-
-acharCores();
 document.querySelector('#color-picker').value = "#FFFFFF";
 
 document.querySelector("#color-picker").addEventListener("input", function() {  
@@ -426,3 +424,16 @@ function regexRGB(event) {
       return false;
   }
 }
+
+function randomizeColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  document.querySelector("#hex").value = color;
+  hexToRGBfromHEXInput(color);
+}
+randomizeColor();
+
+acharCores();
