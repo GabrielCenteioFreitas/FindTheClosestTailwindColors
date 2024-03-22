@@ -107,7 +107,7 @@ body * {
 
 /* Configurando todos os inputs */
 
-/* Input Hex */
+/* Input Color-Picker */
 #color-picker {
   width: 16rem;
   height: 16rem;
@@ -209,7 +209,7 @@ body * {
 }
 
 /* Input HEX */
-.input-color#hex-container .inputs {
+.input-color#hex-container #hex {
   width: fit-content;
 
   border: none;
@@ -218,6 +218,7 @@ body * {
   background-color: transparent;
 
   font-size: 18px;
+  text-transform:uppercase;
 
   transition: var(--all-transition);
 }
