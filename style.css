@@ -36,7 +36,7 @@ body * {
 
   color: #101010;
   background-color: #FAFAFA;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
 
   font-weight: 500;
   font-size: 2.5rem;
@@ -61,7 +61,7 @@ body * {
 
   color: #101010;
   background-color: #FAFAFA;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
   display: grid;
 }
@@ -130,32 +130,32 @@ body * {
 .input-color {
   display: flex;
   justify-content: center;
-  gap: 10px;  
+  gap: 1rem;  
 
-  min-width: 150px;
-  max-width: 250px;
-  padding-inline: 24px;
-  padding-block: 14px;
-  border-radius: 80px;
+  min-width: 15rem;
+  max-width: 25rem;
+  padding-inline: 2.4rem;
+  padding-block: 1.4rem;
+  border-radius: 8rem;
 
   border: 0;
-  outline: 1.5px solid var(--color-border);
+  outline: .15rem solid var(--color-border);
 
   background: none;
 
-  font-size: 18px;
+  font-size: 1.8rem;
 
   transition: var(--all-transition);
 }
 .input-color#hex-container {
   justify-content: start;
-  gap: 4px;
+  gap: .4rem;
 }
 
 /* General settings for focus and placeholder of text inputs */
 .input-color:focus-within {
   border: 0;
-  outline: 1.9px solid var(--color-border-hover);
+  outline: .19rem solid var(--color-border-hover);
 
   color: var(--color-input);
 }
@@ -172,22 +172,22 @@ body * {
 
 /* RGB input */
 .input-color#rgb .inputs {
-  width: 45px;
-  padding-bottom: 1px;
+  width: 4.5rem;
+  padding-bottom: .1rem;
 
   border: none;
-  border-bottom: 1.5px solid var(--color-border);
+  border-bottom: .15rem solid var(--color-border);
   outline: none;
 
   background-color: transparent;
 
   text-align: center;
-  font-size: 18px;
+  font-size: 1.8rem;
 
   transition: var(--all-transition);
 }
 .input-color#rgb .inputs:focus {
-  border-bottom: 1.9px solid var(--color-input);
+  border-bottom: .19rem solid var(--color-input);
 }
 
 .input-color#rgb .virgula {
@@ -196,7 +196,7 @@ body * {
 .input-color#rgb .virgula h2 {
   position: absolute;
   top: -10%;
-  right: -2px;
+  right: -.2rem;
 
   color: var(--color-border);
   font-weight: 400;
@@ -216,8 +216,8 @@ body * {
 
   background-color: transparent;
 
-  font-size: 18px;
-  text-transform:uppercase;
+  font-size: 1.8rem;
+  text-transform: uppercase;
 
   transition: var(--all-transition);
 }
@@ -234,23 +234,23 @@ body * {
 /* Color Label */
 .color-label {
   position: absolute;
-  top: -11.5px;
-  left: 25px;
-  padding: 0 10px;
+  top: -1.15rem;
+  left: 2.5rem;
+  padding: 0 1rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   border: 0;
-  border-radius: 20px;
-  outline: 1.5px solid var(--color-border);
+  border-radius: 2rem;
+  outline: .15rem solid var(--color-border);
 
   color: var(--color-border);
   font-weight: 600;
 
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1rem);
 
   cursor: default;
 
@@ -258,28 +258,28 @@ body * {
 }
 .input-color:focus-within ~ .color-label {
   color: var(--color-border-hover);
-  outline: 1.9px solid var(--color-border-hover);
+  outline: .19rem solid var(--color-border-hover);
 }
 
 /* Copy button */
 .btn-copy {
-  width: 24px;
-  height: 24px;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: 50%;
 
   position: absolute;
-  top: -11.5px;
-  right: 25px;
+  top: -1.5rem;
+  right: 2.5rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   border: 0;
-  outline: 1.5px solid var(--color-border);
+  outline: .15rem solid var(--color-border);
 
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(1rem);
 
   cursor: pointer;
 
@@ -293,7 +293,7 @@ body * {
   transform: scale(1.1);
 }
 .input-color:focus-within ~ .btn-copy {
-  outline: 1.9px solid var(--color-border-hover);
+  outline: .19rem solid var(--color-border-hover);
 }
 .input-color:focus-within ~ .btn-copy:hover {
   background-color: var(--color-border-hover);
