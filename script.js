@@ -245,6 +245,7 @@ cores_tailwind = {
   "rose-950": [76, 5, 25],
 }
 
+// Function that changes the RGB code to Hex
 function rgbToHex() {
   let red = parseInt(document.querySelector('#red').value).toString(16);
   let green = parseInt(document.querySelector('#green').value).toString(16);
@@ -260,6 +261,7 @@ function rgbToHex() {
   document.querySelector('#color-picker').value = hex_color.toUpperCase();
   document.querySelector('#hex').value = hex_color.replace("#", "").toUpperCase();
 }
+// Functions that changes the Hex code to RGB
 function hexToRGBfromColorPicker() {
   let hex_color = document.querySelector("#color-picker").value;
 
@@ -277,6 +279,7 @@ function hexToRGBfromHEXInput(hex_color) {
   document.querySelector('#color-picker').value = "#" + hex_color.toUpperCase();
 }
 
+// Main function - responsible for find the closest Tailwind colors
 function acharCores() {
   var red = parseInt(document.querySelector('#red').value);
   var green = parseInt(document.querySelector('#green').value);
@@ -366,6 +369,7 @@ function acharCores() {
 }
 document.querySelector('#color-picker').value = "#FFFFFF";
 
+// Adding EventListener to the inputs
 document.querySelector("#color-picker").addEventListener("input", function() {  
   hexToRGBfromColorPicker();
   acharCores();
@@ -389,7 +393,7 @@ document.querySelectorAll("#rgb .inputs").forEach(function(input) {
   });
 });
 
-// REGEX
+// Regex
 function regexHex(event) {
   let typedChar = event.data || String.fromCharCode(event.which || event.keyCode);
   let regex = /[a-fA-F0-9]/;
@@ -425,6 +429,7 @@ function regexRGB(event) {
   }
 }
 
+// Randomizing the start color
 function randomizeColor() {
   var letters = '0123456789ABCDEF';
   var color = '';
@@ -436,4 +441,5 @@ function randomizeColor() {
 }
 randomizeColor();
 
+// Calling the main function
 acharCores();

@@ -1,4 +1,4 @@
-/* Configurações gerais */
+/* General settings  */
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +17,7 @@ body * {
   font-family: "Inter", sans-serif;
 }
 
-/* Configurando os principais containers */
+/* Main containers */
 .wrapper {
   display: flex;
 }
@@ -83,7 +83,8 @@ body * {
   font-weight: 600;
   margin-bottom: 3.6rem;
 }
-/* Container principal dos inputs */
+
+/* Main container of the inputs */
 .form {
   display: flex;
   justify-content: center;
@@ -95,7 +96,7 @@ body * {
   gap: 2.8rem;
 }
 
-/* Containers das cores Tailwind */
+/* Tailwind colors containers */
 #container-1, #container-2, #container-3, #container-4, #container-5, #container-6, #container-7, #container-8{
   flex-direction: row;
   justify-content: center;
@@ -105,9 +106,9 @@ body * {
   display: none;
 }
 
-/* Configurando todos os inputs */
+/* Configuring all inputs */
 
-/* Input Color-Picker */
+/* Color-Picker input */
 #color-picker {
   width: 16rem;
   height: 16rem;
@@ -115,14 +116,12 @@ body * {
   outline: 0;
 }
 
-
-/* Configs gerais dos containers dos inputs de texto */
+/* General settings for text input containers */
 .input-color-container {
   position: relative;
 
   --color-icon: #FAFAFA;
   --color-input: #101010;
-  --color-border: #545353;
   --color-border: #8c8b8b;
   --color-border-hover: #101010;
   --all-transition: all .2s ease-out;
@@ -153,7 +152,7 @@ body * {
   gap: 4px;
 }
 
-/* Configs gerais de focus e placeholder dos inputs de texto */
+/* General settings for focus and placeholder of text inputs */
 .input-color:focus-within {
   border: 0;
   outline: 1.9px solid var(--color-border-hover);
@@ -171,7 +170,7 @@ body * {
   opacity: var(--input-focus-opacity);
 }
 
-/* Input RGB */
+/* RGB input */
 .input-color#rgb .inputs {
   width: 45px;
   padding-bottom: 1px;
@@ -208,7 +207,7 @@ body * {
   color: var(--color-input);
 }
 
-/* Input HEX */
+/* Hex input */
 .input-color#hex-container #hex {
   width: fit-content;
 
@@ -262,7 +261,7 @@ body * {
   outline: 1.9px solid var(--color-border-hover);
 }
 
-/* Botão de copiar */
+/* Copy button */
 .btn-copy {
   width: 24px;
   height: 24px;
