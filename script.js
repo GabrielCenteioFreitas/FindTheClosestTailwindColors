@@ -329,8 +329,13 @@ function acharCores() {
     distancias.splice(index_min_distancia, 1);
   }
 
-  document.querySelector('#main').style.background = `rgb(${coordenadas[0]}, ${coordenadas[1]}, ${coordenadas[2]})`;
+  document.querySelector('body').style.background = `rgb(${coordenadas[0]}, ${coordenadas[1]}, ${coordenadas[2]})`;
   
+  for (var i = 1; i <= 8; i++) {
+    document.querySelector(`#container-${i}`).style.display = "none";
+    document.querySelector(`#container-${i}`).classList.remove("expanded");
+  }
+
   var i = 1;
   for (var cor of lista_ordenada) {
     if (i <= 8) {
@@ -341,8 +346,8 @@ function acharCores() {
       }
       var container_atual = document.querySelector(`#container-${i}`);
       var nome_container_atual = document.querySelector(`#container-${i} .name`);
-      var rgb_container_atual = document.querySelector(`#container-${i} .rgb`);
-      var hex_container_atual = document.querySelector(`#container-${i} .hex`);
+      var rgb_container_atual = document.querySelector(`#container-${i} .rgb span`);
+      var hex_container_atual = document.querySelector(`#container-${i} .hex span`);
     
       var lista_cor_atual = cores_tailwind[cor];
       var cor_atual_rgb = `rgb(${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]})`;
@@ -360,7 +365,7 @@ function acharCores() {
       container_atual.style.height = altura + "vh";
       container_atual.style.backgroundColor = cor_atual_rgb;
       nome_container_atual.textContent = nome_atual;
-      rgb_container_atual.textContent = cor_atual_rgb;
+      rgb_container_atual.textContent = `${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]}`;
       hex_container_atual.textContent = cor_atual_hex.toUpperCase();
     }
   
@@ -430,31 +435,39 @@ function regexRGB(event) {
 }
 
 // Copy button
-function copyHexCode() {
-  var hexCodeToCopy = "#" + document.querySelector("#hex").value;
+function copyText(text) {
   var temporaryTextArea = document.createElement("textarea");
-
-  temporaryTextArea.value = hexCodeToCopy;
+  temporaryTextArea.value = text;
   document.body.appendChild(temporaryTextArea);
-
   temporaryTextArea.select();
   temporaryTextArea.setSelectionRange(0, 99999);
   document.execCommand("copy");
-
   document.body.removeChild(temporaryTextArea);
+}
+function copyHexCode() {
+  var hexCodeToCopy = "#" + document.querySelector("#hex").value;
+  copyText(hexCodeToCopy);
 }
 function copyRGBCode() {
   var RGBCodeToCopy = `rgb(${document.querySelector("#red").value}, ${document.querySelector("#green").value}, ${document.querySelector("#blue").value})`;
-  var temporaryTextArea = document.createElement("textarea");
+  copyText(RGBCodeToCopy);
+}
+function copyTailwindColorName() {
+  var tailwindColorName = event.target.parentNode.parentNode.parentNode.querySelector(".name").textContent;
+  copyText(tailwindColorName);
+}
+function copyTailwindRGBCode() {
+  var tailwindRGBCode = `rgb(${event.target.parentNode.parentNode.querySelector("span").textContent})`;
+  copyText(tailwindRGBCode);
+}
+function copyTailwindHexCode() {
+  var tailwindHexCode = `${event.target.parentNode.parentNode.querySelector("span").textContent}`;
+  copyText(tailwindHexCode);
+}
 
-  temporaryTextArea.value = RGBCodeToCopy;
-  document.body.appendChild(temporaryTextArea);
-
-  temporaryTextArea.select();
-  temporaryTextArea.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-
-  document.body.removeChild(temporaryTextArea);
+// Show Tailwind color info
+function expandColorInfo() {
+  event.target.parentNode.parentNode.parentNode.parentNode.classList.toggle("expanded");
 }
 
 // Randomizing the start color

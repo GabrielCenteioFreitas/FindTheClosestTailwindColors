@@ -8,10 +8,16 @@
 }
 :root {
   font-size: 62.5%;
+  
+  --color-icon: #FAFAFA;
+  --color-input: #101010;
+  --color-border: #8c8b8b;
+  --color-border-hover: #101010;
+  --all-transition: all .2s ease-out;
+  --input-focus-opacity: .3;
 }
 body {
   font-size: 1.6rem;
-  overflow-y: hidden;
 }
 body * {
   font-family: "Inter", sans-serif;
@@ -24,29 +30,6 @@ body * {
 .main-container {
   width: 50%;
 }
-.container .name, .container .rgb, .container .hex {
-  width: 28rem;
-  margin: 0;
-  border-radius: 999rem;
-  padding: .6rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #101010;
-  background-color: #FAFAFA;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
-
-  font-weight: 500;
-  font-size: 2.5rem;
-}
-.container .name {
-  width: 20rem;
-}
-.container .hex {
-  width: 16rem;
-}
 #main {
   height: 100vh;
 
@@ -54,13 +37,15 @@ body * {
   place-content: center;
   justify-items: center;
   gap: 1.6rem;
+
+  background: transparent;
 }
 .content {
   padding: 4rem;
-  border-radius: 4rem;
+  border-radius: 2rem;
 
-  color: #101010;
-  background-color: #FAFAFA;
+  color: var(--color-input);
+  background-color: var(--color-icon);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
   display: grid;
@@ -97,13 +82,128 @@ body * {
 }
 
 /* Tailwind colors containers */
-#container-1, #container-2, #container-3, #container-4, #container-5, #container-6, #container-7, #container-8{
-  flex-direction: row;
+.container {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.container .color-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: relative; 
+}
+.container .name-container {
+  width: 30rem;
+  margin: 0;
+  padding: 1rem;
+  padding-inline: 2.2rem;
+  border-radius: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: var(--color-icon);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+.container .name-container .copy-name-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.container .name-container .name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-input);
+  
+  cursor: pointer;
+}
+.container .name-container .btn-copy {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.container .name-container .btn-expand {
+  border: 0;
+  font-size: 0;
+  background: transparent;
+
+  cursor: pointer;
+}
+.container .name-container .btn-expand img {
+  width: 2.8rem;
+  height: 2.8rem;
+
+  transition: transform .5s ease;
+}
+.container.expanded .name-container .btn-expand img {
+  transform: rotateX(-180deg);
+}
+.container .info-container {
+  width: 30rem;
+  margin: 0;
+  padding: .8rem;
+  padding-inline: 2.4rem;
+  border-radius: 1.2rem;
+
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+
+  position: absolute;
+  bottom: -7rem;
+  z-index: 10;
+
+  background-color: var(--color-icon);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+
+  transition: all .2s ease;
+}
+.container.expanded .info-container {
+  opacity: 1;
+}
+.container .rgb-container,
+.container .hex-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+.container h4 {
+  font-size: 1.6rem;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+.container span {
+  font-weight: 500;
+}
+.btn-copy.info {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
 
-  display: none;
+  border: 0;
+  outline: .15rem solid var(--color-input);
+
+  background-color: var(--color-icon);
+
+  cursor: pointer;
+
+  transition: var(--all-transition);
+}
+.btn-copy.info:hover {
+  transform: scale(1.15);
+}
+.btn-copy.info:active {
+  transform: scale(0.9);
 }
 
 /* Configuring all inputs */
@@ -119,13 +219,6 @@ body * {
 /* General settings for text input containers */
 .input-color-container {
   position: relative;
-
-  --color-icon: #FAFAFA;
-  --color-input: #101010;
-  --color-border: #8c8b8b;
-  --color-border-hover: #101010;
-  --all-transition: all .2s ease-out;
-  --input-focus-opacity: .3;
 }
 .input-color {
   display: flex;
@@ -250,7 +343,7 @@ body * {
   color: var(--color-border);
   font-weight: 600;
 
-  background-color: transparent;
+  background-color: var(--color-icon);
   backdrop-filter: blur(1rem);
 
   cursor: default;
@@ -263,7 +356,7 @@ body * {
 }
 
 /* Copy button */
-.btn-copy {
+.btn-copy:not(.info) {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;
@@ -279,32 +372,23 @@ body * {
   border: 0;
   outline: .15rem solid var(--color-border);
 
-  background-color: transparent;
-  backdrop-filter: blur(1rem);
+  background-color: var(--color-icon);
 
   cursor: pointer;
 
   transition: var(--all-transition);
 }
-.btn-copy:hover {
-  background-color: var(--color-border);
+.btn-copy:not(.info):hover {
   transform: scale(1.2);
 }
-.btn-copy:active {
+.btn-copy:not(.info):active {
   transform: scale(0.95);
 }
 .input-color:focus-within ~ .btn-copy {
   outline: .19rem solid var(--color-border-hover);
 }
-.input-color:focus-within ~ .btn-copy:hover {
-  background-color: var(--color-border-hover);
-}
-.icon-btn-copy {
+.form .icon-btn-copy {
   fill: var(--color-border);
-}
-.btn-copy:hover .icon-btn-copy,
-.input-color:focus-within ~ .btn-copy:hover .icon-btn-copy {
-  fill: var(--color-icon);
 }
 .input-color:focus-within ~ .btn-copy .icon-btn-copy {
   fill: var(--color-border-hover);
