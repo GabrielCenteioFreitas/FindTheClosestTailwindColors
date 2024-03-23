@@ -95,23 +95,26 @@ function acharCores() {
 
   document.querySelector('body').style.background = `rgb(${coordenadas[0]}, ${coordenadas[1]}, ${coordenadas[2]})`;
   
-  for (var i = 1; i <= 5; i++) {
-    document.querySelector(`#container-${i}`).style.display = "none";
-    document.querySelector(`#container-${i}`).classList.remove("expanded");
+  
+  while (document.querySelector("#tailwind-colors").childNodes.length > 2) {
+    document.querySelector("#tailwind-colors").removeChild(document.querySelector("#tailwind-colors").lastChild);
   }
 
   var i = 1;
   for (var cor of lista_ordenada) {
     if (i <= 5) {
       if (lista_ordenada.length <= 5) {
-        var altura = 100/lista_ordenada.length;
+        altura = 100/lista_ordenada.length;
       } else {
-        var altura = 100/5;
+        altura = 100/5;
       }
-      var container_atual = document.querySelector(`#container-${i}`);
-      var nome_container_atual = document.querySelector(`#container-${i} .name`);
-      var rgb_container_atual = document.querySelector(`#container-${i} .rgb span`);
-      var hex_container_atual = document.querySelector(`#container-${i} .hex span`);
+
+      const container = document.querySelector('template').content.firstElementChild.cloneNode(true);
+      container.id = `container-${i}`;
+
+      var nome_container_atual = container.querySelector(`.name`);
+      var rgb_container_atual = container.querySelector(`.rgb span`);
+      var hex_container_atual = container.querySelector(`.hex span`);
     
       var lista_cor_atual = cores_tailwind[cor];
       var cor_atual_rgb = `rgb(${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]})`;
@@ -125,18 +128,18 @@ function acharCores() {
 
       var nome_atual = lista_ordenada[i-1];
     
-      container_atual.style.display = "flex";
-      container_atual.style.height = altura + "vh";
-      container_atual.style.backgroundColor = cor_atual_rgb;
       nome_container_atual.textContent = nome_atual;
       rgb_container_atual.textContent = `${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]}`;
       hex_container_atual.textContent = cor_atual_hex.toUpperCase();
+      container.style.height = altura + "vh";
+      container.style.backgroundColor = cor_atual_rgb;
+
+      document.querySelector("#tailwind-colors").appendChild(container);
     }
   
     i++;
   }
 }
-document.querySelector('#color-picker').value = "#FFFFFF";
 
 // Adding EventListener to the inputs
 document.querySelector("#color-picker").addEventListener("input", function() {  
