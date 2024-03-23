@@ -290,7 +290,7 @@ body * {
   transform: scale(1.2);
 }
 .btn-copy:active {
-  transform: scale(1.1);
+  transform: scale(0.95);
 }
 .input-color:focus-within ~ .btn-copy {
   outline: .19rem solid var(--color-border-hover);

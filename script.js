@@ -188,17 +188,17 @@ cores_tailwind = {
   "indigo-800": [55, 48, 163],
   "indigo-900": [49, 46, 129],
   "indigo-950": [30, 27, 75],
-  "violet-50": [245, 243, 255],
-  "violet-100": [237, 233, 254],
-  "violet-200": [221, 214, 254],
-  "violet-300": [196, 181, 253],
-  "violet-400": [167, 139, 250],
-  "violet-500": [139, 92, 246],
-  "violet-600": [124, 58, 237],
-  "violet-700": [109, 40, 217],
-  "violet-800": [91, 33, 182],
-  "violet-900": [76, 29, 149],
-  "violet-950": [46, 16, 101],
+  "viovar-50": [245, 243, 255],
+  "viovar-100": [237, 233, 254],
+  "viovar-200": [221, 214, 254],
+  "viovar-300": [196, 181, 253],
+  "viovar-400": [167, 139, 250],
+  "viovar-500": [139, 92, 246],
+  "viovar-600": [124, 58, 237],
+  "viovar-700": [109, 40, 217],
+  "viovar-800": [91, 33, 182],
+  "viovar-900": [76, 29, 149],
+  "viovar-950": [46, 16, 101],
   "purple-50": [250, 245, 255],
   "purple-100": [243, 232, 255],
   "purple-200": [233, 213, 255],
@@ -247,15 +247,15 @@ cores_tailwind = {
 
 // Function that changes the RGB code to Hex
 function rgbToHex() {
-  let red = parseInt(document.querySelector('#red').value).toString(16);
-  let green = parseInt(document.querySelector('#green').value).toString(16);
-  let blue = parseInt(document.querySelector('#blue').value).toString(16);
+  var red = parseInt(document.querySelector('#red').value).toString(16);
+  var green = parseInt(document.querySelector('#green').value).toString(16);
+  var blue = parseInt(document.querySelector('#blue').value).toString(16);
 
-  let red_hex = red.length == 1 ? "0" + red : red;
-  let green_hex = green.length == 1 ? "0" + green : green;
-  let blue_hex = blue.length == 1 ? "0" + blue : blue;
+  var red_hex = red.length == 1 ? "0" + red : red;
+  var green_hex = green.length == 1 ? "0" + green : green;
+  var blue_hex = blue.length == 1 ? "0" + blue : blue;
 
-  let hex_color = "#" + red_hex + green_hex + blue_hex;
+  var hex_color = "#" + red_hex + green_hex + blue_hex;
   hex_color = hex_color.replace("NaN", "00");
 
   document.querySelector('#color-picker').value = hex_color.toUpperCase();
@@ -263,7 +263,7 @@ function rgbToHex() {
 }
 // Functions that changes the Hex code to RGB
 function hexToRGBfromColorPicker() {
-  let hex_color = document.querySelector("#color-picker").value;
+  var hex_color = document.querySelector("#color-picker").value;
 
   document.querySelector('#red').value = parseInt(hex_color.substring(1, 3), 16);
   document.querySelector('#green').value = parseInt(hex_color.substring(3, 5), 16);
@@ -346,13 +346,13 @@ function acharCores() {
     
       var lista_cor_atual = cores_tailwind[cor];
       var cor_atual_rgb = `rgb(${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]})`;
-      let red = lista_cor_atual[0].toString(16);
-      let green = lista_cor_atual[1].toString(16);
-      let blue = lista_cor_atual[2].toString(16);    
-      let red_hex = red.length == 1 ? "0" + red : red;
-      let green_hex = green.length == 1 ? "0" + green : green;
-      let blue_hex = blue.length == 1 ? "0" + blue : blue;
-      let cor_atual_hex = "#" + red_hex + green_hex + blue_hex;
+      var red = lista_cor_atual[0].toString(16);
+      var green = lista_cor_atual[1].toString(16);
+      var blue = lista_cor_atual[2].toString(16);    
+      var red_hex = red.length == 1 ? "0" + red : red;
+      var green_hex = green.length == 1 ? "0" + green : green;
+      var blue_hex = blue.length == 1 ? "0" + blue : blue;
+      var cor_atual_hex = "#" + red_hex + green_hex + blue_hex;
 
       var nome_atual = lista_ordenada[i-1];
     
@@ -380,7 +380,7 @@ document.querySelector("#hex").addEventListener("input", function() {
     acharCores();
   }
   else if (document.querySelector("#hex").value.length === 3) {
-    let hex_color = document.querySelector("#hex").value.replace(/([a-f\d])/gi, '$1$1');
+    var hex_color = document.querySelector("#hex").value.replace(/([a-f\d])/gi, '$1$1');
     hexToRGBfromHEXInput(hex_color);
     acharCores();
   }
@@ -395,8 +395,8 @@ document.querySelectorAll("#rgb .inputs").forEach(function(input) {
 
 // Regex
 function regexHex(event) {
-  let typedChar = event.data || String.fromCharCode(event.which || event.keyCode);
-  let regex = /[a-fA-F0-9]/;
+  var typedChar = event.data || String.fromCharCode(event.which || event.keyCode);
+  var regex = /[a-fA-F0-9]/;
 
   if (!regex.test(typedChar)) {
       event.preventDefault();
@@ -406,14 +406,14 @@ function regexHex(event) {
 }
 
 function regexRGB(event) {
-  let keyCode = ('which' in event) ? event.which : event.keyCode;
-  let typedChar = String.fromCharCode(keyCode);
-  let regex1 = /[\d\b]/;
-  let regex2 = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])?$/;
+  var keyCode = ('which' in event) ? event.which : event.keyCode;
+  var typedChar = String.fromCharCode(keyCode);
+  var regex1 = /[\d\b]/;
+  var regex2 = /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])?$/;
 
   if (regex1.test(typedChar)) {
-      let currentValue = event.target.value;
-      let newValue = currentValue.slice(0, event.target.selectionStart) + typedChar + currentValue.slice(event.target.selectionEnd);
+      var currentValue = event.target.value;
+      var newValue = currentValue.slice(0, event.target.selectionStart) + typedChar + currentValue.slice(event.target.selectionEnd);
 
       if (regex2.test(newValue)) {
           return true;
@@ -429,12 +429,40 @@ function regexRGB(event) {
   }
 }
 
+// Copy button
+function copyHexCode() {
+  var hexCodeToCopy = "#" + document.querySelector("#hex").value;
+  var temporaryTextArea = document.createElement("textarea");
+
+  temporaryTextArea.value = hexCodeToCopy;
+  document.body.appendChild(temporaryTextArea);
+
+  temporaryTextArea.select();
+  temporaryTextArea.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+
+  document.body.removeChild(temporaryTextArea);
+}
+function copyRGBCode() {
+  var RGBCodeToCopy = `rgb(${document.querySelector("#red").value}, ${document.querySelector("#green").value}, ${document.querySelector("#blue").value})`;
+  var temporaryTextArea = document.createElement("textarea");
+
+  temporaryTextArea.value = RGBCodeToCopy;
+  document.body.appendChild(temporaryTextArea);
+
+  temporaryTextArea.select();
+  temporaryTextArea.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+
+  document.body.removeChild(temporaryTextArea);
+}
+
 // Randomizing the start color
 function randomizeColor() {
-  var letters = '0123456789ABCDEF';
+  var varters = '0123456789ABCDEF';
   var color = '';
   for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+    color += varters[Math.floor(Math.random() * 16)];
   }
   document.querySelector("#hex").value = color;
   hexToRGBfromHEXInput(color);
