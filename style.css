@@ -9,11 +9,10 @@
 :root {
   font-size: 62.5%;
   
-  --color-icon: #FAFAFA;
-  --color-input: #101010;
-  --color-border: #8c8b8b;
-  --color-border-hover: #101010;
-  --all-transition: all .2s ease-out;
+  --color-white: #FAFAFA;
+  --color-black: #101010;
+  --color-grey: #8b8b8b;
+  --all-transition: all .2s ease;
   --input-focus-opacity: .3;
 }
 body {
@@ -44,8 +43,8 @@ body * {
   padding: 4rem;
   border-radius: 2rem;
 
-  color: var(--color-input);
-  background-color: var(--color-icon);
+  color: var(--color-black);
+  background-color: var(--color-white);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
   display: grid;
@@ -98,7 +97,7 @@ body * {
 .container .name-container {
   width: 30rem;
   margin: 0;
-  padding: 1rem;
+  padding: .6rem;
   padding-inline: 2.2rem;
   border-radius: 1.2rem;
 
@@ -106,7 +105,7 @@ body * {
   align-items: center;
   justify-content: space-between;
 
-  background-color: var(--color-icon);
+  background-color: var(--color-white);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 }
 .container .name-container .copy-name-container {
@@ -117,7 +116,7 @@ body * {
 .container .name-container .name {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--color-input);
+  color: var(--color-black);
   
   cursor: pointer;
 }
@@ -157,7 +156,7 @@ body * {
   bottom: -7rem;
   z-index: 10;
 
-  background-color: var(--color-icon);
+  background-color: var(--color-white);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
   transition: all .2s ease;
@@ -191,9 +190,9 @@ body * {
   align-items: center;
 
   border: 0;
-  outline: .15rem solid var(--color-input);
+  outline: .15rem solid var(--color-black);
 
-  background-color: var(--color-icon);
+  background-color: var(--color-white);
 
   cursor: pointer;
 
@@ -225,14 +224,13 @@ body * {
   justify-content: center;
   gap: 1rem;  
 
-  min-width: 15rem;
-  max-width: 25rem;
+  width: 25rem;
   padding-inline: 2.4rem;
   padding-block: 1.4rem;
   border-radius: 8rem;
 
   border: 0;
-  outline: .15rem solid var(--color-border);
+  outline: .15rem solid var(--color-grey);
 
   background: none;
 
@@ -248,14 +246,14 @@ body * {
 /* General settings for focus and placeholder of text inputs */
 .input-color:focus-within {
   border: 0;
-  outline: .19rem solid var(--color-border-hover);
+  outline: .19rem solid var(--color-black);
 
-  color: var(--color-input);
+  color: var(--color-black);
 }
 .input-color::-webkit-input-placeholder,
 .input-color::-moz-input-placeholder,
 .input-color::-ms-input-placeholder {
-  color: var(--color-border);
+  color: var(--color-grey);
 }
 .input-color-container:focus-within::-webkit-input-placeholder,
 .input-color-container:focus-within::-moz-input-placeholder,
@@ -269,7 +267,7 @@ body * {
   padding-bottom: .1rem;
 
   border: none;
-  border-bottom: .15rem solid var(--color-border);
+  border-bottom: .15rem solid var(--color-grey);
   outline: none;
 
   background-color: transparent;
@@ -280,7 +278,7 @@ body * {
   transition: var(--all-transition);
 }
 .input-color#rgb .inputs:focus {
-  border-bottom: .19rem solid var(--color-input);
+  border-bottom: .19rem solid var(--color-black);
 }
 
 .input-color#rgb .virgula {
@@ -291,14 +289,14 @@ body * {
   top: -10%;
   right: -.2rem;
 
-  color: var(--color-border);
+  color: var(--color-grey);
   font-size: 2.4rem;
   font-weight: 400;
 
   transition: var(--all-transition);
 }
 .input-color#rgb:focus-within .virgula span {
-  color: var(--color-input);
+  color: var(--color-black);
 }
 
 /* Hex input */
@@ -316,13 +314,13 @@ body * {
   transition: var(--all-transition);
 }
 .input-color#hex-container .hashtag span {
-  color: var(--color-border);
+  color: var(--color-grey);
   font-weight: 300;
 
   transition: var(--all-transition);
 }
 .input-color#hex-container:focus-within .hashtag span {
-  color: var(--color-input);
+  color: var(--color-black);
 }
 
 /* Color Label */
@@ -338,12 +336,12 @@ body * {
 
   border: 0;
   border-radius: 2rem;
-  outline: .15rem solid var(--color-border);
+  outline: .15rem solid var(--color-grey);
 
-  color: var(--color-border);
+  color: var(--color-grey);
   font-weight: 600;
 
-  background-color: var(--color-icon);
+  background-color: var(--color-white);
   backdrop-filter: blur(1rem);
 
   cursor: default;
@@ -351,8 +349,8 @@ body * {
   transition: var(--all-transition);
 }
 .input-color:focus-within ~ .color-label {
-  color: var(--color-border-hover);
-  outline: .19rem solid var(--color-border-hover);
+  color: var(--color-black);
+  outline: .19rem solid var(--color-black);
 }
 
 /* Copy button */
@@ -370,9 +368,9 @@ body * {
   align-items: center;
 
   border: 0;
-  outline: .15rem solid var(--color-border);
+  outline: .15rem solid var(--color-grey);
 
-  background-color: var(--color-icon);
+  background-color: var(--color-white);
 
   cursor: pointer;
 
@@ -385,11 +383,11 @@ body * {
   transform: scale(0.95);
 }
 .input-color:focus-within ~ .btn-copy {
-  outline: .19rem solid var(--color-border-hover);
+  outline: .19rem solid var(--color-black);
 }
 .form .icon-btn-copy {
-  fill: var(--color-border);
+  fill: var(--color-grey);
 }
 .input-color:focus-within ~ .btn-copy .icon-btn-copy {
-  fill: var(--color-border-hover);
+  fill: var(--color-black);
 }

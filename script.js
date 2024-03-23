@@ -331,18 +331,18 @@ function acharCores() {
 
   document.querySelector('body').style.background = `rgb(${coordenadas[0]}, ${coordenadas[1]}, ${coordenadas[2]})`;
   
-  for (var i = 1; i <= 8; i++) {
+  for (var i = 1; i <= 5; i++) {
     document.querySelector(`#container-${i}`).style.display = "none";
     document.querySelector(`#container-${i}`).classList.remove("expanded");
   }
 
   var i = 1;
   for (var cor of lista_ordenada) {
-    if (i <= 8) {
-      if (lista_ordenada.length <= 8) {
+    if (i <= 5) {
+      if (lista_ordenada.length <= 5) {
         var altura = 100/lista_ordenada.length;
       } else {
-        var altura = 100/8;
+        var altura = 100/5;
       }
       var container_atual = document.querySelector(`#container-${i}`);
       var nome_container_atual = document.querySelector(`#container-${i} .name`);
