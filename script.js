@@ -104,9 +104,9 @@ function acharCores() {
   for (var cor of lista_ordenada) {
     if (i <= 5) {
       if (lista_ordenada.length <= 5) {
-        altura = 100/lista_ordenada.length;
+        var altura = 100/lista_ordenada.length;
       } else {
-        altura = 100/5;
+        var altura = 100/5;
       }
 
       const container = document.querySelector('template').content.firstElementChild.cloneNode(true);
