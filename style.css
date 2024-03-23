@@ -24,7 +24,7 @@ body * {
 .main-container {
   width: 50%;
 }
-.container .nome, .container .rgb, .container .hex {
+.container .name, .container .rgb, .container .hex {
   width: 28rem;
   margin: 0;
   border-radius: 999rem;
@@ -41,7 +41,7 @@ body * {
   font-weight: 500;
   font-size: 2.5rem;
 }
-.container .nome {
+.container .name {
   width: 20rem;
 }
 .container .hex {
@@ -193,17 +193,18 @@ body * {
 .input-color#rgb .virgula {
   position: relative;
 }
-.input-color#rgb .virgula h2 {
+.input-color#rgb .virgula span {
   position: absolute;
   top: -10%;
   right: -.2rem;
 
   color: var(--color-border);
+  font-size: 2.4rem;
   font-weight: 400;
 
   transition: var(--all-transition);
 }
-.input-color#rgb:focus-within .virgula h2 {
+.input-color#rgb:focus-within .virgula span {
   color: var(--color-input);
 }
 
@@ -221,13 +222,13 @@ body * {
 
   transition: var(--all-transition);
 }
-.input-color#hex-container .hashtag h2 {
+.input-color#hex-container .hashtag span {
   color: var(--color-border);
   font-weight: 300;
 
   transition: var(--all-transition);
 }
-.input-color#hex-container:focus-within .hashtag h2 {
+.input-color#hex-container:focus-within .hashtag span {
   color: var(--color-input);
 }
 

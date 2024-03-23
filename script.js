@@ -340,7 +340,7 @@ function acharCores() {
         var altura = 100/8;
       }
       var container_atual = document.querySelector(`#container-${i}`);
-      var nome_container_atual = document.querySelector(`#container-${i} .nome`);
+      var nome_container_atual = document.querySelector(`#container-${i} .name`);
       var rgb_container_atual = document.querySelector(`#container-${i} .rgb`);
       var hex_container_atual = document.querySelector(`#container-${i} .hex`);
     
