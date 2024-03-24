@@ -44,4 +44,23 @@ This project was developed using the following technologies:
 
 ## 💻 Project
 
-This project is a website where you can find the closest Tailwind CSS colors based on your input in Hex/RGB code or by selecting from a color picker.
+"Find the closest Tailwind CSS colors" is a tool every Tailwind developer needs. Developed with the purpose of eliminating doubt when choosing which Tailwind color is most similar to the one used in a project.
+
+Easy and intuitive, in that website you can input a color in Hex/RGB code or select it from a color picker and get the nearest colors from the Tailwind palette instantly.
+
+You can access/use the tool by clicking [here](https://gabrielcenteiofreitas.github.io/FindTheClosestTailwindColors/).
+
+## 🤝 Contributions
+
+Issues and pull requests are appreciated!
+
+## 👨🏻‍💻 Author: Gabriel Centeio Freitas 
+
+<p align="left">
+  <a alt="Github" href="https://github.com/GabrielCenteioFreitas/">
+    <img src="https://img.shields.io/badge/GITHUB-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a alt="Linkedin" href="https://www.linkedin.com/in/gabrielcenteiofreitas/">
+    <img src="https://img.shields.io/badge/LINKEDIN-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+</p>
