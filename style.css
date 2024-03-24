@@ -25,6 +25,7 @@ body * {
 /* Main containers */
 .wrapper {
   display: flex;
+  height: 100vh;
 }
 .main-container {
   width: 50%;
@@ -273,7 +274,7 @@ body * {
 
 /* Tailwind colors containers */
 #tailwind-colors {
-  height: 100vh;
+  min-height: 500px;
 }
 .container {
   display: flex;
@@ -513,6 +514,7 @@ body * {
   }
   /* Tailwind containers */
   #tailwind-colors {
+    min-height: 400px;
     height: 100%;
   }
   .color-wrapper {
