@@ -45,3 +45,15 @@ This project was developed using the following technologies:
 ## 💻 Project
 
 This project is a website where you can find the closest Tailwind CSS colors based on your input in Hex/RGB code or by selecting from a color picker.
+
+## 👨🏻‍💻 Author: Gabriel Centeio Freitas 
+
+<p align="left">
+  <a alt="Github" href="https://github.com/GabrielCenteioFreitas/">
+    <img src="https://img.shields.io/badge/GITHUB-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a alt="Linkedin" href="https://www.linkedin.com/in/gabrielcenteiofreitas/">
+    <img src="https://img.shields.io/badge/LINKEDIN-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+</p>
+  
