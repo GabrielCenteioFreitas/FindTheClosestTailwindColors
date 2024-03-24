@@ -171,10 +171,18 @@ body * {
   justify-content: start;
   gap: 1rem;
 }
+.container .info-container .btn-copy {
+  cursor: default;
+}
+.container.expanded .info-container .btn-copy {
+  cursor: pointer;
+}
 .container h4 {
   font-size: 1.6rem;
   font-weight: 800;
-
+  cursor: default;
+}
+.container.expanded h4 {
   cursor: pointer;
 }
 .container span {

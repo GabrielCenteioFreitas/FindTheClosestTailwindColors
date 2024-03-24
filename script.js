@@ -165,6 +165,16 @@ document.querySelectorAll("#rgb .inputs").forEach(function(input) {
   });
 });
 
+// Adding a click EventListener to close the Tailwind colors infos
+document.addEventListener('click', function(event) {
+  const expandedContainer = document.querySelector('.expanded .color-wrapper');
+
+  // Verifica se o clique ocorreu fora da div expandida
+  if (expandedContainer && !expandedContainer.contains(event.target)) {
+    expandedContainer.parentElement.classList.remove("expanded");
+  }
+});
+
 // Regex
 function regexHex(event) {
   var typedChar = event.data || String.fromCharCode(event.which || event.keyCode);
@@ -234,6 +244,10 @@ function copyTailwindHexCode() {
 
 // Show Tailwind color info
 function expandColorInfo() {
+  if (document.querySelector(".expanded") && (document.querySelector(".expanded") != event.target.parentNode.parentNode.parentNode.parentNode)) {
+    document.querySelector(".expanded").classList.remove("expanded");
+  }
+
   event.target.parentNode.parentNode.parentNode.parentNode.classList.toggle("expanded");
 }
 
