@@ -120,7 +120,7 @@ function acharCores() {
       var cor_atual_rgb = `rgb(${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]})`;
       var red = lista_cor_atual[0].toString(16);
       var green = lista_cor_atual[1].toString(16);
-      var blue = lista_cor_atual[2].toString(16);    
+      var blue = lista_cor_atual[2].toString(16);
       var red_hex = red.length == 1 ? "0" + red : red;
       var green_hex = green.length == 1 ? "0" + green : green;
       var blue_hex = blue.length == 1 ? "0" + blue : blue;
@@ -132,6 +132,7 @@ function acharCores() {
       rgb_container_atual.textContent = `${lista_cor_atual[0]}, ${lista_cor_atual[1]}, ${lista_cor_atual[2]}`;
       hex_container_atual.textContent = cor_atual_hex.toUpperCase();
       container.style.height = altura + "vh";
+      container.style.height = altura + "%";
       container.style.backgroundColor = cor_atual_rgb;
 
       document.querySelector("#tailwind-colors").appendChild(container);
