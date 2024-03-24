@@ -44,9 +44,11 @@ This project was developed using the following technologies:
 
 ## 💻 Project
 
-"Find the closest Tailwind CSS colors" is a tool every Tailwind developer needs. Developed with the purpose of eliminating doubt when choosing which Tailwind color is most similar to the one used in the project.
+"Find the closest Tailwind CSS colors" is a tool every Tailwind developer needs. Developed with the purpose of eliminating doubt when choosing which Tailwind color is most similar to the one used in a project.
 
 Easy and intuitive, in that website you can input a color in Hex/RGB code or select it from a color picker and get the nearest colors from the Tailwind palette instantly.
+
+You can access/use the tool by clicking [here](https://gabrielcenteiofreitas.github.io/FindTheClosestTailwindColors/).
 
 ## 🤝 Contributions
 
