@@ -22,7 +22,7 @@
 
 <br>
 <p align="center">
-  <img alt="Preview of the project." src=".github/preview.png" width="80%">
+  <img alt="Preview of the project." src=".github/preview.gif" width="80%">
 </p>
 
 <h4 align="center">
